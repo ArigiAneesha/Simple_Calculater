@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculater</title>
+    <style>
+        table{
+            border: 2px solid gray;
+            height: 500px;
+            width: 25%;
+            margin: auto;
+            border-spacing: 20px;
+            margin-top: 50px;
+        }
+        td{
+            border: 1px solid black;
+            padding: 15px;
+            text-align: center;    
+        }
+        input,button{
+            border: none;
+            background-color: transparent;
+        }
+        button{
+            font-weight: bolder;
+            font-size: medium;
+        }  
+    </style>
+</head>
+<body>
+    <h1 align="center">Simple Calculater</h1>
+    <table>
+        <tr>
+            <td><button class="button">c</button></td>
+            <td colspan="3"><input type="text" id="input"></td>
+        </tr>
+        <tr>
+            <td><button class="button">1</button></td>
+            <td><button class="button">2</button></td>
+            <td><button class="button">3</button></td>
+            <td><button class="button">-</button></td>
+        </tr>
+        <tr>
+            <td><button class="button">4</button></td>
+            <td><button class="button">5</button></td>
+            <td><button class="button">6</button></td>
+            <td rowspan="2"><button class="button">+</button></td>
+        </tr>
+        <tr>
+            <td><button class="button">7</button></td>
+            <td><button class="button">8</button></td>
+            <td><button class="button">9</button></td>
+        </tr>
+        <tr>
+            <td><button class="button">.</button></td>
+            <td><button class="button">0</button></td>
+            <td><button class="button">=</button></td>
+            <td><button class="button">*</button></td>
+        </tr>
+    </table>
+    <script>
+        var input=document.getElementById("input");
+        var str="";
+        var buttons=document.querySelectorAll('.button');
+         Array.from(buttons).forEach((button)=>{
+            button.onclick=(e)=>{
+                if(e.target.innerHTML == '='){
+                    str=eval(str);
+                    input.value=str;
+                }
+                //to clear or delete the data
+                else if(e.target.innerHTML == 'c'){
+                    str="";
+                    input.value=str;
+                }
+                else{
+                    str+=e.target.innerHTML;
+                    input.value=str;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
